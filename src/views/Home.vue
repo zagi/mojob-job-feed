@@ -1,6 +1,5 @@
 <template>
   <div class="home">
-    {{ selectedPositionFunctions }}
     <job-feed
       :job-listings="jobListing"
       :position-functions="positionFunctionFilters"
