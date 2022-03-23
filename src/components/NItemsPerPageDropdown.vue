@@ -42,9 +42,9 @@ export default class NItemsPerPageDropdown extends Vue {
       (el) => el.value != this.itemsPerPage
     );
   }
-  @Watch("selectedPositionFunctions")
-  onSelectedPositionFunctionsChange(val: number[], oldVal: number[]) {
-    this.$emit("selectedPositionFunctions", val);
+  @Watch("itemsPerPage")
+  onSelectedNItemsPerPageChange(val: number[], oldVal: number[]) {
+    this.$emit("selectedNItemsPerPage", val);
   }
 }
 </script>

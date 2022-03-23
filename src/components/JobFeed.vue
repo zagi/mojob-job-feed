@@ -10,13 +10,13 @@
     </v-toolbar>
     
     <div>
-
+      {{selectedPositionFunctions}} | {{selectedNItemsPerPage}}
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue, Emit } from "vue-property-decorator";
+import { Component, Prop, Vue } from "vue-property-decorator";
 import { JobListing, PositionFunction } from "@/models/models";
 import PositionFunctionDropdown from "@/components/PositionFunctionDropdown.vue";
 import NItemsPerPageDropdown from "@/components/NItemsPerPageDropdown.vue";
@@ -34,11 +34,9 @@ export default class JobFeed extends Vue {
   private jobListings!: JobListing[];
   @Prop({ default: () => [], type: Array as () => PositionFunction[] })
   private positionFunctions!: PositionFunction[];
-  @Emit()
   onSelectedPositionFunctionsChange(val: number[]) {
     this.selectedPositionFunctions = val;
   }
-  @Emit()
   onSelectedNItemsPerPageChange(val: number) {
     this.selectedNItemsPerPage = val;
   }
