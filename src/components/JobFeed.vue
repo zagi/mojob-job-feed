@@ -9,9 +9,9 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue } from 'vue-property-decorator';
-import { JobListing, PositionFunction } from '@/models/models';
-import PositionFunctionDropdown from '@/components/PositionFunctionDropdown.vue';
+import { Component, Prop, Vue } from "vue-property-decorator";
+import { JobListing, PositionFunction } from "@/models/models";
+import PositionFunctionDropdown from "@/components/PositionFunctionDropdown.vue";
 
 @Component({
   components: {
