@@ -9,8 +9,12 @@
       </v-btn>
     </template>
     <v-list color="transparent">
-      <v-list-item v-for="(item, i) in itemsPerPageOptionsFilter" :key="i">
-        <v-list-item-content class="dropdown-item">
+      <v-list-item
+        v-for="(item, i) in itemsPerPageOptionsFilter"
+        :key="i"
+        class="dropdown-item"
+      >
+        <v-list-item-content>
           <v-list-item-title
             @click="itemsPerPage = item.value"
             v-text="item.text"
@@ -46,6 +50,6 @@ export default class NItemsPerPageDropdown extends Vue {
 </script>
 <style scoped>
 .dropdown-item {
-    cursor: pointer;
+  cursor: pointer;
 }
 </style>
