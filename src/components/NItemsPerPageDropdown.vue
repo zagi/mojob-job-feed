@@ -9,7 +9,11 @@
       </v-btn>
     </template>
     <v-list color="transparent">
-      <v-list-item v-for="(item, i) in itemsPerPageOptionsFilter" :key="i">
+      <v-list-item
+        v-for="(item, i) in itemsPerPageOptionsFilter"
+        :key="i"
+        class="dropdown-item"
+      >
         <v-list-item-content>
           <v-list-item-title
             @click="itemsPerPage = item.value"
@@ -22,20 +26,30 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from "vue-property-decorator";
+import { Component, Vue, Watch } from "vue-property-decorator";
+import { FIVE_PER_PAGE, TWENTYFIVE_PER_PAGE, DISPLAY_ALL } from "@/config/app";
 
 @Component
 export default class NItemsPerPageDropdown extends Vue {
   itemsPerPage: number = 5;
   itemsPerPageOptions: { text: string; value: number }[] = [
-    { text: "5 per page", value: 5 },
-    { text: "25 per page", value: 25 },
-    { text: "Display all", value: -1 },
+    { text: "5 per page", value: FIVE_PER_PAGE },
+    { text: "25 per page", value: TWENTYFIVE_PER_PAGE },
+    { text: "Display all", value: DISPLAY_ALL },
   ];
   get itemsPerPageOptionsFilter() {
     return this.itemsPerPageOptions.filter(
       (el) => el.value != this.itemsPerPage
     );
   }
+  @Watch("itemsPerPage")
+  onSelectedNItemsPerPageChange(val: number[], oldVal: number[]) {
+    this.$emit("selectedNItemsPerPage", val);
+  }
 }
 </script>
+<style scoped>
+.dropdown-item {
+  cursor: pointer;
+}
+</style>
