@@ -6,12 +6,26 @@
         @selectedPositionFunctions="onSelectedPositionFunctionsChange"
       />
       <v-spacer></v-spacer>
-      <n-items-per-page-dropdown @selectedNItemsPerPage="onSelectedNItemsPerPageChange" />
+      <n-items-per-page-dropdown
+        @selectedNItemsPerPage="onSelectedNItemsPerPageChange"
+      />
     </v-toolbar>
-    
-    <div>
-      {{selectedPositionFunctions}} | {{selectedNItemsPerPage}}
-    </div>
+    <v-container>
+      <v-row>
+        <v-col cols="12" v-for="(item, i) in jobListings" :key="i">
+          <v-card>
+            <v-card-title>
+              {{ item.job.title }}
+            </v-card-title>
+            <v-card-text>
+              {{ item.job.unit.display_name }} •
+              {{ item.job.position_function.name_en }} •
+              {{ item.job.due_date | date }}
+            </v-card-text>
+          </v-card>
+        </v-col>
+      </v-row>
+    </v-container>
   </div>
 </template>
 
@@ -24,7 +38,7 @@ import NItemsPerPageDropdown from "@/components/NItemsPerPageDropdown.vue";
 @Component({
   components: {
     PositionFunctionDropdown,
-    NItemsPerPageDropdown
+    NItemsPerPageDropdown,
   },
 })
 export default class JobFeed extends Vue {
