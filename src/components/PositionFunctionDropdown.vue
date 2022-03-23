@@ -8,10 +8,9 @@
         </v-icon>
       </v-btn>
     </template>
-    <v-list color="transparent" max-height="500">
+    <v-list max-height="500">
       <v-treeview
         v-model="selectedPositionFunctions"
-        elevation="0"
         :items="positionFunctions"
         selectable
         selection-type="independent"

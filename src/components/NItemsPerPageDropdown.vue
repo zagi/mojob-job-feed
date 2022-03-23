@@ -10,7 +10,7 @@
     </template>
     <v-list color="transparent">
       <v-list-item v-for="(item, i) in itemsPerPageOptionsFilter" :key="i">
-        <v-list-item-content>
+        <v-list-item-content class="dropdown-item">
           <v-list-item-title
             @click="itemsPerPage = item.value"
             v-text="item.text"
@@ -22,7 +22,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from "vue-property-decorator";
+import { Component, Vue, Watch } from "vue-property-decorator";
 
 @Component
 export default class NItemsPerPageDropdown extends Vue {
@@ -37,5 +37,14 @@ export default class NItemsPerPageDropdown extends Vue {
       (el) => el.value != this.itemsPerPage
     );
   }
+  @Watch("selectedPositionFunctions")
+  onSelectedPositionFunctionsChange(val: number[], oldVal: number[]) {
+    this.$emit("selectedPositionFunctions", val);
+  }
 }
 </script>
+<style scoped>
+.dropdown-item {
+    cursor: pointer;
+}
+</style>
