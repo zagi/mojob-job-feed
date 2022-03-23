@@ -6,7 +6,7 @@
         @selectedPositionFunctions="onSelectedPositionFunctionsChange"
       />
       <v-spacer></v-spacer>
-      Dropdown n items per page
+      <n-items-per-page-dropdown />
     </v-toolbar>
     {{ selectedPositionFunctions }}
   </div>
@@ -16,10 +16,12 @@
 import { Component, Prop, Vue, Emit } from "vue-property-decorator";
 import { JobListing, PositionFunction } from "@/models/models";
 import PositionFunctionDropdown from "@/components/PositionFunctionDropdown.vue";
+import NItemsPerPageDropdown from "@/components/NItemsPerPageDropdown.vue";
 
 @Component({
   components: {
     PositionFunctionDropdown,
+    NItemsPerPageDropdown
   },
 })
 export default class JobFeed extends Vue {
