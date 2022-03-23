@@ -130,17 +130,22 @@ npm run serve
 
 ```
 I have used node version:
-v12.19.0
+v16.13.1
+
 I have used npm version:
-v6.14.8
+v8.3.0
+
 Javascript framework used:
-Vue
+Vue | Vuetify
+
 If you did not use the given Vue project template, describe how can we run your code:
-x y z
+Did it with given template.
+
 Do you have any other comments regarding your deliverable?
-x y z
+It was a pleasure to deliver it :)
+
 Do you have any comments/feedback about the task we gave you?
-x y z
+There is one thing that is confusing me a bit. The position functions containing only one child with the same name have different IDs.
 ```
 
 2. To deliver your project you can either send us the link to the git project in the Mojob chat or you can send the archived project by email to `bs@mojob.io`.
